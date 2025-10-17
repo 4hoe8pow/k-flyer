@@ -1,0 +1,1 @@
+import{_ as e}from"./q-BKZ00VYc.js";import{n as o,N as i}from"./q-MpD3lIpe.js";const r=o(i(()=>e(()=>import("./q-Bjozigch.js").then(t=>t.i),[]),"s_PePw0JJ9CYY")),s={title:"KABADDI | 感じるルール",meta:[{name:"description",content:"カバディを“感じる”Web体験。"}]};export{r as default,s as head};
