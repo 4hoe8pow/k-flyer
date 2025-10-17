@@ -1,34 +1,48 @@
-import { component$, useVisibleTask$ } from "@builder.io/qwik";
-import type { DocumentHead } from "@builder.io/qwik-city";
+import { component$ } from "@builder.io/qwik";
+import { type DocumentHead, Link } from "@builder.io/qwik-city";
 
 export default component$(() => {
-	useVisibleTask$(() => {
-		document.body.classList.add("loaded");
-	});
-
 	return (
 		<main class="relative flex h-screen flex-col items-center justify-center text-white overflow-hidden selection:bg-white/20">
-			<h1 class="text-6xl md:text-8xl font-light tracking-[0.25em] opacity-0 animate-fade-blur">
-				KABADDI
-			</h1>
-			<p class="mt-6 text-sm md:text-base text-neutral-400 font-light opacity-0 animate-fade-blur-delay">
-				カバディ、カバディ、カバディ、、、
-			</p>
-			<a
-				href="/rules"
-				class="mt-10 text-xs uppercase tracking-widest text-neutral-300 link-underline hover:text-white transition-colors"
-			>
-				learn more
-			</a>
+			{/* Heroタイトル - 野生的ファッショナブルシック + 白銀比 */}
+			<div class="hero__title-wrapper relative w-full flex justify-center">
+				<h1 class="hero__title text-[14vw] md:text-[10rem] font-thin italic tracking-[0.414em] leading-[0.707] opacity-0 animate-fade-blur select-none text-center">
+					KABADDI
+					{/* グリッチ分裂エフェクト */}
+					<span
+						class="hero__glitch absolute inset-0 pointer-events-none"
+						data-text="KABADDI"
+					/>
+					<span
+						class="hero__glitch-alt absolute inset-0 pointer-events-none"
+						data-text="KABADDI"
+					/>
+				</h1>
+				{/* 野生的テクスチャオーバーレイ */}
+				<div class="hero__texture absolute inset-0 pointer-events-none mix-blend-overlay" />
+			</div>
 
-			{/* 背景層 */}
-			<div class="absolute inset-0 -z-10 particle-layer"></div>
+			{/* キャッチフレーズ - 白銀比の余白 */}
+			<p class="hero__subtitle text-xs md:text-sm text-neutral-500 font-extralight opacity-0 animate-fade-blur-delay tracking-[0.35em] uppercase">
+				Tackle&nbsp;·&nbsp;Dodge&nbsp;·&nbsp;Hold
+			</p>
+
+			{/* CTA - 白銀比の余白 */}
+			<Link
+				href="rules"
+				class="cta text-[0.65rem] tracking-[0.3em] uppercase text-white/40 font-light"
+			>
+				Explore the spirit
+			</Link>
+
+			{/* 背景層：オレンジグロー浮遊粒子 */}
+			<div class="bg-particles absolute inset-0 -z-10"></div>
 		</main>
 	);
 });
 
 export const head: DocumentHead = {
-	title: "KABADDI | 感じるルール",
+	title: "Kabaddi Knowledge",
 	meta: [
 		{
 			name: "description",

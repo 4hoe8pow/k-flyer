@@ -21,6 +21,7 @@ errorOnDuplicatesPkgDeps(devDependencies, dependencies);
 
 export default defineConfig(({ command, mode }): UserConfig => {
   return {
+    base: '/k-flyer/', // GitHub Pages のリポジトリ名
     plugins: [
       qwikCity(),
       qwikVite(),

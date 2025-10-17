@@ -32,7 +32,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./dist/k-flyer
           publish_branch: gh-pages
           commit_message: "ci: deploy k-flyer via bun from ${GITHUB_SHA}"
           allow_empty_commit: true
