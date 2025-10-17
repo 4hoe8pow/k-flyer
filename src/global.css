@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+:root {
+	--accent: 255, 255, 255;
+}
+
+/* Fade-in + slight blur */
+@keyframes fade-blur {
+	from {
+		opacity: 0;
+		filter: blur(6px);
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		filter: blur(0);
+		transform: translateY(0);
+	}
+}
+.animate-fade-blur {
+	animation: fade-blur 1.4s ease-out forwards;
+}
+.animate-fade-blur-delay {
+	animation: fade-blur 2s ease-out forwards;
+}
+
+/* 背景：グラデーション＋微ノイズ＋浮遊粒子 */
+body {
+	background:
+		radial-gradient(at 50% 30%, rgba(255, 255, 255, 0.04), transparent 60%),
+		radial-gradient(at 80% 70%, rgba(255, 255, 255, 0.02), transparent 60%),
+		#0a0a0a;
+	background-blend-mode: screen;
+	overflow: hidden;
+	position: relative;
+}
+
+.particle-layer::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background:
+		radial-gradient(
+			circle at 30% 30%,
+			rgba(255, 255, 255, 0.06),
+			transparent 40%
+		),
+		radial-gradient(
+			circle at 70% 70%,
+			rgba(255, 255, 255, 0.04),
+			transparent 40%
+		);
+	background-size: 200% 200%;
+	animation: float 25s ease-in-out infinite alternate;
+	filter: blur(4px);
+	opacity: 0.8;
+}
+
+@keyframes float {
+	from {
+		background-position:
+			0 0,
+			100% 100%;
+	}
+	to {
+		background-position:
+			100% 0,
+			0 100%;
+	}
+}
+
+/* CTA 下線アニメーション */
+a.link-underline {
+	position: relative;
+}
+a.link-underline::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -2px;
+	width: 0%;
+	height: 1px;
+	background-color: rgb(var(--accent));
+	transition: width 0.4s ease;
+}
+a.link-underline:hover::after {
+	width: 100%;
+}
