@@ -1,0 +1,1 @@
+import{_ as t}from"./q-CZ4IwKn6.js";import{p as e,N as o}from"./q-rUQDvmhZ.js";const r=e(o(()=>t(()=>import("./q-DcN565wv.js"),[]),"s_Hi4LEMLF9KE")),s={title:"Kabaddi LP コンセプトまとめ",meta:[{name:"description",content:"カバディLPのコンセプト・デザイン・技術・マーケティングまとめ。"}]};export{r as default,s as head};
