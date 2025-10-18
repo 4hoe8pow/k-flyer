@@ -1,0 +1,79 @@
+body {
+	font-family: var(--font-body);
+	color: rgba(var(--ink-strong), 0.94);
+	background:
+		radial-gradient(
+			at 18% 18%,
+			rgba(var(--color-horizon-green), 0.22),
+			transparent 62%
+		),
+		radial-gradient(
+			at 82% 82%,
+			rgba(var(--color-mocha-mousse), 0.18),
+			transparent 60%
+		), linear-gradient(180deg, rgba(255, 255, 255, 0.96), var(--color-bg-dark));
+	background-color: var(--color-bg-dark);
+	background-blend-mode: soft-light;
+	overflow-x: hidden;
+	position: relative;
+}
+
+::selection {
+	background: rgba(var(--color-horizon-green), 0.28);
+	color: rgba(var(--ink-strong), 0.94);
+}
+
+.page-sheen {
+	position: absolute;
+	inset: -20%;
+	background:
+		radial-gradient(
+			circle at 46% 18%,
+			rgba(var(--color-horizon-green), 0.2),
+			transparent 58%
+		),
+		radial-gradient(
+			circle at 82% 14%,
+			rgba(var(--color-mocha-mousse), 0.18),
+			transparent 64%
+		);
+	opacity: 0.32;
+	filter: blur(90px);
+	pointer-events: none;
+	z-index: -5;
+}
+
+.page-grid {
+	position: absolute;
+	inset: 0;
+	background-image:
+		linear-gradient(rgba(var(--ink-delicate), 0.35) 1px, transparent 0),
+		linear-gradient(90deg, rgba(var(--ink-delicate), 0.35) 1px, transparent 0);
+	background-size: 150px 150px;
+	opacity: 0.18;
+	pointer-events: none;
+	z-index: -4;
+}
+
+.bg-particles::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background:
+		radial-gradient(
+			circle at 30% 32%,
+			rgba(var(--color-horizon-green), 0.18),
+			transparent 44%
+		),
+		radial-gradient(
+			circle at 72% 68%,
+			rgba(var(--color-mocha-mousse), 0.16),
+			transparent 46%
+		);
+	background-size: 220% 220%;
+	animation:
+		float var(--anim-float-duration) ease-in-out infinite alternate,
+		subtle-glow var(--anim-glow-duration) ease-in-out infinite alternate;
+	filter: blur(8px);
+	opacity: 0.62;
+}

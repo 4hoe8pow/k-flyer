@@ -12,7 +12,7 @@ export default extendConfig(baseConfig, () => {
     },
     plugins: [
       staticAdapter({
-        origin: "https://4hoe8pow.github.io/k-flyer",
+        origin: "https://k-flyer.jocarium.productions",
       }),
     ],
   };

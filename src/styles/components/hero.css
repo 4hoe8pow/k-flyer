@@ -1,0 +1,83 @@
+.hero-lead {
+	display: grid;
+	gap: var(--space-silver-2);
+	justify-items: center;
+	text-align: center;
+	margin-bottom: var(--space-silver-3);
+}
+
+.hero-lead .hero__subtitle {
+	margin-top: 0;
+	margin-bottom: 0;
+	color: rgba(var(--ink-soft), 0.76);
+	text-shadow: 0 1px 10px rgba(255, 255, 255, 0.6);
+}
+
+.hero__title-wrapper {
+	perspective: 1000px;
+	padding: var(--space-silver-2) 0;
+}
+
+.hero__title {
+	position: relative;
+	font-weight: 100;
+	letter-spacing: var(--hero-tracking);
+	line-height: var(--ratio-silver-inverse);
+	transform-style: preserve-3d;
+	color: rgba(var(--ink-strong), 0.96);
+	text-shadow:
+		0 0 calc(var(--glow-blur-xl) * 1.4) rgba(var(--color-horizon-green), 0.32),
+		0 0 var(--glow-blur-lg) rgba(var(--color-horizon-green), 0.28),
+		0 0 var(--glow-blur-md) rgba(var(--color-mocha-mousse), 0.26),
+		0 0 var(--glow-blur-sm) rgba(var(--color-mocha-mousse), 0.18),
+		0 12px 30px rgba(255, 255, 255, 0.55);
+}
+
+.hero__glitch,
+.hero__glitch-alt {
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+	mix-blend-mode: screen;
+	pointer-events: none;
+}
+
+.hero__glitch::before,
+.hero__glitch-alt::before {
+	content: attr(data-text);
+	position: absolute;
+	inset: 0;
+}
+
+.hero__glitch::before {
+	color: rgba(var(--color-horizon-green), 0.85);
+	animation: glitch-1 var(--anim-glitch-duration) infinite;
+	clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.hero__glitch-alt::before {
+	color: rgba(var(--color-mocha-mousse), 0.75);
+	animation: glitch-2 var(--anim-glitch-duration) infinite;
+	clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+.hero__texture {
+	background:
+		repeating-linear-gradient(
+			0deg,
+			transparent,
+			transparent calc(2px * var(--ratio-silver)),
+			rgba(255, 255, 255, 0.01) calc(2px * var(--ratio-silver)),
+			rgba(255, 255, 255, 0.01) calc(4px * var(--ratio-silver))
+		),
+		repeating-linear-gradient(
+			90deg,
+			transparent,
+			transparent calc(2px * var(--ratio-silver)),
+			rgba(255, 255, 255, 0.008) calc(2px * var(--ratio-silver)),
+			rgba(255, 255, 255, 0.008) calc(4px * var(--ratio-silver))
+		);
+	opacity: 0.4;
+	animation: texture-shift
+		calc(var(--anim-glitch-duration) * 2 * var(--ratio-silver)) linear infinite;
+}
