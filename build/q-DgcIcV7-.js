@@ -1,1 +1,0 @@
-import{h as u}from"./q-DArC-B66.js";import{g as l}from"./q-DArC-B66.js";const b=({cleanup:o})=>{const[s,n,c,i]=u(),r=n.value;if(!r)return;const e=new IntersectionObserver(f=>{for(const t of f)t.isIntersecting&&(i.value=!0,s&&e.unobserve(t.target))},{threshold:c});e.observe(r),o(()=>e.disconnect())};export{l as _hW,b as s_Rbmwuz5Fu9w};

@@ -1,1 +1,0 @@
-import{_}from"./q-BKZ00VYc.js";import{a as s,Y as i,N as u}from"./q-DArC-B66.js";const m=(r={})=>{const{threshold:t=.1,once:a=!0}=r,e=s(),o=s(!1);return i(u(()=>_(()=>import("./q-DgcIcV7-.js"),[]),"s_Rbmwuz5Fu9w",[a,e,t,o])),{ref:e,visible:o}};export{m as u};
