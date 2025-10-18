@@ -1,0 +1,1 @@
+import{_ as e}from"./q-CZ4IwKn6.js";import{p as t,N as o}from"./q-rUQDvmhZ.js";const d=t(o(()=>e(()=>import("./q-Ch9gbt1O.js"),[]),"s_PePw0JJ9CYY")),r={title:"Kabaddi Knowledge",meta:[{name:"description",content:"カバディを“感じる”Web体験。"}]};export{d as default,r as head};
