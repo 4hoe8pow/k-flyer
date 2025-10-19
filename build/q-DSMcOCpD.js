@@ -1,0 +1,1 @@
+import{S as o}from"./q-uyy6fDZN.js";import{k as l,z as e,o as s}from"./q-rUQDvmhZ.js";const t=()=>l("div",null,{class:"route-shell flex min-h-screen flex-col"},[l("div",null,{class:"flex flex-1 flex-col pb-16 md:pb-20 lg:pb-24"},e(s,null,3,"OE_0"),1,null),e(o,null,3,"OE_1")],1,"OE_2");export{t as s_aPFzLCAJ4rU};
