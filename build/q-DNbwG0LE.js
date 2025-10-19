@@ -1,1 +1,0 @@
-import{k as t,E as s}from"./q-rUQDvmhZ.js";const u=n=>t("div",null,{class:"about-section-header"},[t("p",null,{class:"about-section-kicker"},s(l=>l.kicker,[n]),3,null),t("h2",null,{class:"about-section-title"},s(l=>l.title,[n]),3,null),t("p",null,{class:"about-section-intro"},s(l=>l.intro,[n]),3,null)],3,"pw_0");export{u as s_i90Xz4uqagQ};
