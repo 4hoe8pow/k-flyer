@@ -1,6 +1,6 @@
 {
 	"version": "1",
-	"manifestHash": "6ps34b",
+	"manifestHash": "pmlv1z",
 	"options": {
 		"target": "client",
 		"buildMode": "production",
@@ -17,7 +17,7 @@
 			"location": "head",
 			"attributes": {
 				"rel": "stylesheet",
-				"href": "/k-flyer/assets/CjYfl0kS-style.css"
+				"href": "/k-flyer/assets/F_9jD-ji-style.css"
 			}
 		}
 	],
@@ -737,9 +737,9 @@
 		}
 	},
 	"assets": {
-		"assets/CjYfl0kS-style.css": {
+		"assets/F_9jD-ji-style.css": {
 			"name": "style.css",
-			"size": 37068
+			"size": 37224
 		},
 		"assets/DpmnTQQn-bundle-graph.json": {
 			"name": "bundle-graph.json",
