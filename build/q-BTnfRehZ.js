@@ -1,0 +1,1 @@
+import{_ as t}from"./q-CZ4IwKn6.js";const o=()=>t(()=>import("./q-B1I8HmX6.js"),[]),_=[["/k-flyer/",[o,()=>t(()=>import("./q-D2yErxOo.js"),[])]],["k-flyer/about/",[o,()=>t(()=>import("./q-DGWiY9az.js"),[])]],["k-flyer/rules/",[o,()=>t(()=>import("./q-CiTUtq3l.js"),[])]]],e=[];const s=!0;export{s as c,e as m,_ as r};
