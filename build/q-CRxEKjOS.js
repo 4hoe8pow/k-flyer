@@ -1,0 +1,1 @@
+import{k as n,E as o}from"./q-rUQDvmhZ.js";const u=t=>n("div",null,{class:"about-hero-panel"},[n("p",null,{class:"about-section-kicker"},o(l=>l.kicker,[t]),3,null),n("h2",null,{class:"about-hero-title"},o(l=>l.title,[t]),3,null),n("p",null,{class:"about-section-intro"},o(l=>l.intro,[t]),3,null)],3,"5d_0");export{u as s_5f02vCqLS2o};
