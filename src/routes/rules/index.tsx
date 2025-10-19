@@ -1,19 +1,18 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
-import { CtaFooter } from "../../components/rules/cta-footer";
-import { HeroLead } from "../../components/rules/hero-lead";
+import { HeroLead } from "~/components/rules/hero-lead";
 import {
 	RaidFlowSection,
 	type RaidFlowStep,
-} from "../../components/rules/raid-flow-section";
+} from "~/components/rules/raid-flow-section";
 import {
 	type RuleCard,
 	RulesCardSection,
-} from "../../components/rules/rules-card-section";
+} from "~/components/rules/rules-card-section";
 import {
 	RulesIntroPanel,
 	type RulesIntroStat,
-} from "../../components/rules/rules-intro-panel";
+} from "~/components/rules/rules-intro-panel";
 
 export default component$(() => {
 	const heroShouldAnimate = useSignal(false);
@@ -111,7 +110,7 @@ export default component$(() => {
 	});
 
 	return (
-		<main class="relative font-body flex min-h-screen flex-col items-center justify-center overflow-hidden">
+		<main class="page-layout relative font-body overflow-hidden">
 			<div class="page-sheen" aria-hidden="true" />
 			<div class="page-grid" aria-hidden="true" />
 			<HeroLead
@@ -119,27 +118,22 @@ export default component$(() => {
 				subtitle={heroSubtitle}
 				animate={heroShouldAnimate.value}
 			/>
-
 			<RulesIntroPanel
 				accentLabel="BASICS"
 				title="カバディの基本と試合の流れを要点で解説します。"
 				copy="初めての方にも競技の構造と主要ルールが伝わるよう、専門用語をできるだけ平易に整理しました。"
 				stats={introStats}
 			/>
-
 			<RaidFlowSection
 				accentLabel="RAID FLOW"
 				title="得点までの4ステップ"
 				steps={flowSteps}
 			/>
-
 			<RulesCardSection
 				accentLabel="RULE SNAPSHOT"
 				title="用語について"
 				cards={ruleCards}
 			/>
-
-			<CtaFooter href=".." label="TOPへ戻る" />
 			<div class="bg-particles absolute inset-0 -z-10"></div>
 		</main>
 	);

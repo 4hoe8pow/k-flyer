@@ -3,7 +3,7 @@ import { type DocumentHead, Link } from "@builder.io/qwik-city";
 
 export default component$(() => {
 	return (
-		<main class="relative font-body flex h-screen flex-col items-center justify-center overflow-hidden">
+		<main class="relative font-body flex min-h-screen flex-col items-center justify-center overflow-hidden">
 			{/* Heroタイトル - 野生的ファッショナブルシック + 白銀比 */}
 			<div class="hero__title-wrapper relative w-full flex justify-center">
 				<h1 class="hero__title font-display text-[14vw] md:text-[10rem] font-thin italic tracking-[0.414em] leading-[0.707] opacity-0 animate-fade-blur select-none text-center">

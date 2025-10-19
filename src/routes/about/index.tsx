@@ -1,156 +1,313 @@
 import { component$ } from "@builder.io/qwik";
-import { type DocumentHead, Link } from "@builder.io/qwik-city";
+import type { DocumentHead } from "@builder.io/qwik-city";
+import { AboutHero, type HeroStat } from "~/components/about/about-hero";
+import {
+	type FeatureAngle,
+	FeatureSection,
+} from "~/components/about/feature-section";
+import {
+	type InternationalResult,
+	InternationalResultsSection,
+} from "~/components/about/international-results-section";
+import { type Phase, PhasesSection } from "~/components/about/phases-section";
+import {
+	type HighlightEntry,
+	RecentHighlightsSection,
+} from "~/components/about/recent-highlights-section";
 
-const culturalThreads = [
+const heroStats: HeroStat[] = [
 	{
-		title: "声に宿る連帯感",
-		body: "呼吸を合わせて声を響かせるカバディは、村落から都市へと広がる過程で共同体の絆を象徴する儀礼的な遊戯として親しまれてきました。",
+		value: "1978",
+		label: "初上陸",
+		detail: "インド代表が来日し展示試合を実施",
+		color: "#f6f0ff",
 	},
 	{
-		title: "移動と交換の歴史",
-		body: "交易路や祭礼を通じて地域ごとの技術が交わり、身体の使い方や掛け声のスタイルが多様化。地域色を保ちつつも一体感のある競技文化が形成されました。",
+		value: "1981",
+		label: "組織設立",
+		detail: "日本カバディ協会（JAKA）設立・東金市で学校指導開始",
+		color: "#eef7ff",
 	},
 	{
-		title: "世代をつなぐ継承",
-		body: "口伝えで培われた練習法や礼節は、学校教育やクラブ活動に取り入れられ、生活のリズムとともに息づく文化資産として伝承されています。",
+		value: "1989",
+		label: "全国大会創設",
+		detail: "第1回全日本カバディ選手権を開催",
+		color: "#fdf7ec",
+	},
+	{
+		value: "1990",
+		label: "国際舞台進出",
+		detail: "日本代表がアジア競技大会（北京）に初出場",
+		color: "#ecf7f2",
+	},
+	{
+		value: "1994",
+		label: "国内開催",
+		detail: "広島アジア大会でカバディ競技を日本が主催",
+		color: "#fff0f5",
+	},
+	{
+		value: "1998",
+		label: "女子代表誕生",
+		detail: "女子日本代表がアジア大会初出場",
+		color: "#f2f1ff",
+	},
+	{
+		value: "2000s",
+		label: "大学スポーツ化",
+		detail: "二松学舎大や筑波大などでクラブ設立が相次ぐ",
+		color: "#f5f9ee",
+	},
+	{
+		value: "2010",
+		label: "メダル獲得",
+		detail: "広州アジア大会で日本男子が銅メダル",
+		color: "#fef4e8",
+	},
+	{
+		value: "2025",
+		label: "地域連携強化",
+		detail: "東アジア選手権優勝・東日本連盟活動拡大",
+		color: "#f0fbff",
 	},
 ];
 
-const timeline = [
+const phases: Phase[] = [
 	{
-		year: "紀元前",
-		description:
-			"狩猟や体力づくりの遊戯として、声と素早さを重んじる遊びが南アジア各地に根づく。",
+		id: "Ⅰ",
+		period: "導入期（1970年代後半〜1980年代前半）",
+		summary: "展示試合と学校体育を通じて基盤を整えた時期。",
+		timeline: { start: 0, span: 25 },
+		topics: [
+			{
+				title: "カバディの日本への導入",
+				items: [
+					"1978年、インディア・カバディ協会による親善ツアーで代表チームが来日し、東京で展示試合を実施。",
+					"この訪問を契機に、インド大使館文化部が日本の教育関係者へ競技導入を提案。",
+					"1979年〜1980年、教育現場での実技研究が進み、教材化の検討が開始された。",
+				],
+			},
+			{
+				title: "東金市モデルの誕生",
+				items: [
+					"1981年、千葉県東金市でインド大使館と市教育委員会が連携し、小中学校でカバディ実技を導入。",
+					"東金市は“カバディのまち”として知られ、体育授業・地域イベントで継続的に普及活動を展開。",
+					"児童生徒の交流試合が地元メディアに取り上げられ、国内最初期のカバディ人口を形成した。",
+				],
+			},
+			{
+				title: "日本カバディ協会（JAKA）の設立",
+				items: [
+					"1981年、日本カバディ協会（Japan Amateur Kabaddi Association）が発足。",
+					"初代会長は東金市長（当時）。協会は競技規則の日本語訳・審判育成・インド協会との連絡を担当。",
+					"日本選手団の派遣体制と、国際大会出場を見据えた基盤整備が始まった。",
+				],
+			},
+		],
 	},
 	{
-		year: "20世紀前半",
-		description:
-			"学校教育や地域大会に取り入れられ、統一的なルールづくりが始まる。",
+		id: "Ⅱ",
+		period: "普及・競技化期（1980年代後半〜1990年代前半）",
+		summary: "メディア露出と公式大会が競技化を後押しした時期。",
+		timeline: { start: 25, span: 50 },
+		topics: [
+			{
+				title: "メディアと社会的認知",
+				items: [
+					"1980年代半ば、NHKや全国紙が『インド発祥の新スポーツ』としてカバディを特集。",
+					"ニュース映像での取り上げが、学校教育・体育指導者層に波及。",
+					"“声を絶やさず攻める”というユニークなルールが話題となり、注目を集めた。",
+				],
+			},
+			{
+				title: "国内大会と選手育成の始動",
+				items: [
+					"1989年 第1回全日本カバディ選手権大会が開催され、正式なルール統一が進む。",
+					"1990年代初頭には東日本・西日本選手権も立ち上がり、地域間対抗の形式が確立。",
+					"インドからコーチを招聘し、技術・戦略面での体系的指導が導入された。",
+				],
+			},
+			{
+				title: "国際大会への参入",
+				items: [
+					"1990年 日本代表を初編成し、アジア競技大会（北京）で正式競技として初出場。",
+					"1994年 広島アジア大会で開催国として再出場し、日本初の国際公式戦を主催。",
+					"この時期から国際カバディ連盟（IKF）加盟を視野に入れた本格的国際連携が始まった。",
+				],
+			},
+		],
 	},
 	{
-		year: "現代",
-		description:
-			"国際連盟やプロリーグが誕生し、配信技術によって世界中の観客へとコミュニティが広がる。",
+		id: "Ⅲ",
+		period: "学生スポーツ化・国際出場の定着（1990年〜2000年代）",
+		summary: "大学クラブ設立と国際大会参加が並行して進んだ時期。",
+		timeline: { start: 50, span: 30 },
+		topics: [
+			{
+				title: "大学スポーツとしての拡大",
+				items: [
+					"二松学舎大学柏キャンパスに日本初の大学カバディチームが結成され、体育会公認化。",
+					"続いて筑波・早稲田・立教・東京学芸などでも愛好会が設立され、大学間リーグ戦が成立。",
+					"大学生が審判・コーチ資格を兼任する仕組みが作られ、学生主導の普及が進む。",
+				],
+			},
+			{
+				title: "国際大会への継続出場",
+				items: [
+					"1998年 バンコク大会で女子代表が初出場。",
+					"2002年 釜山大会・2006年 ドーハ大会へと連続出場し、常連国として定着。",
+					"2010年 広州大会で銅メダルを獲得し、アジア勢としての存在感を確立した。",
+				],
+			},
+			{
+				title: "競技制度と環境整備",
+				items: [
+					"日本カバディ協会が指導者・審判の認定制度を整備し、競技ルールを国際基準に統一。",
+					"大学と社会人クラブを統合したリーグ構想が始動し、トップカテゴリ形成を模索。",
+					"文化交流イベントや国際親善試合が毎年開催され、カバディを通じた日印交流が深化した。",
+				],
+			},
+		],
+	},
+	{
+		id: "Ⅳ",
+		period: "現代の展開と文化的波及（2010年〜）",
+		summary:
+			"全国的な組織整備と教育・文化への広がりが同時進行し、メディア表現を通じて若年層の関心が高まった時期。",
+		timeline: { start: 80, span: 20 },
+		topics: [
+			{
+				title: "組織の進化と地域リーグ体制",
+				items: [
+					"日本カバディ協会が国際カバディ連盟（IKF）加盟国として活動領域を拡大。",
+					"東日本・西日本など地域連盟を整備し、国内リーグ戦の運営基盤を強化。",
+					"地域クラブが育成年代チームを設立し、ジュニア世代への教育が本格化した。",
+				],
+			},
+			{
+				title: "メディア表現と認知拡大",
+				items: [
+					"2015年 漫画『灼熱カバディ』（武蔵野創）が連載開始、戦略性と心理戦が注目される。",
+					"2021年 TVアニメ化で“カバディって実在するの？”がSNSトレンド化。",
+					"2024年の完結時点で全43巻・累計発行部数300万部超を記録し、体験イベント需要が増加。",
+				],
+			},
+			{
+				title: "若年層の参入と競技課題",
+				items: [
+					"高校・大学での体験授業や地域イベントの開催によりZ世代の新規参加が増加。",
+					"SNSで拡散されるハイライト映像が興味喚起を促進。",
+					"国内競技人口は約500人規模ながら、コーチライセンス制度や審判養成講座を整備中。",
+				],
+			},
+		],
 	},
 ];
 
-const modernHighlights = [
-	"アジアを中心にナショナルチームが整備され、女子・ユース層への裾野が拡大。",
-	"プレー解析やトレーニングの科学的アプローチが進み、戦術研究が国境を超えて共有されている。",
-	"ファンコミュニティが声援やチャントを編み出し、競技の世界観を多言語で楽しむ動きが広がっている。",
+const internationalResults: InternationalResult[] = [
+	{
+		year: "1990",
+		event: "第11回アジア競技大会",
+		location: "北京",
+		outcome: "初出場",
+	},
+	{
+		year: "1994",
+		event: "第12回アジア競技大会",
+		location: "広島",
+		outcome: "開催国として出場",
+	},
+	{
+		year: "1998",
+		event: "第13回アジア競技大会",
+		location: "バンコク",
+		outcome: "女子代表初出場",
+	},
+	{
+		year: "2010",
+		event: "第16回アジア競技大会",
+		location: "広州",
+		outcome: "銅メダル獲得",
+	},
+	{
+		year: "2026",
+		event: "第20回アジア競技大会",
+		location: "愛知",
+		outcome: "",
+	},
+];
+
+const recentHighlights: HighlightEntry[] = [
+	{
+		title: "第9回カバディチャレンジカップ（2025年6月）",
+		details: [
+			"男子はWASEDA MONSTERSが優勝。",
+			"東京大学4年生の今福優作選手がMVPを受賞。",
+		],
+	},
+	{
+		title: "第一回男子東アジアカバディ選手権（2025年6月）",
+		details: [
+			"台湾（台北）で開催。",
+			"日本代表が優勝し、初代東アジアチャンピオンとなった。",
+		],
+	},
+];
+
+const featureAngles: FeatureAngle[] = [
+	{
+		label: "地域教育モデル",
+		description: "地方自治体（東金市）発のスポーツ導入。",
+	},
+	{
+		label: "文化外交モデル",
+		description: "インド大使館文化部と行政の協働。",
+	},
+	{
+		label: "知的身体スポーツ",
+		description: "声・呼吸・陣形による思考的競技性。",
+	},
+	{
+		label: "持続的普及構造",
+		description: "学校・地域・国際大会の三層で進化。",
+	},
 ];
 
 export default component$(() => {
 	return (
-		<main class="about-layout">
-			<header class="about-container about-hero">
-				<p class="about-eyebrow">Kabaddi Heritage</p>
-				<h1 class="about-title">声が導くカバディの輪郭</h1>
-				<p class="about-intro">
-					武器を持たずに響く声と連携。その原点から今日の競技シーンまで、カバディの歩みを概要として紹介します。
-				</p>
-			</header>
-			<section class="about-container about-section">
-				<header class="about-section-header">
-					<p class="about-section-eyebrow">Cultural Lens</p>
-					<h2 class="about-section-title">日常と祭礼に根づく背景</h2>
-					<p class="about-section-lead">
-						カバディは日々の暮らしの中で培われた身体技法と精神性が凝縮した競技です。地域ごとの物語が織り交ざり、声を合わせる所作がコミュニティの結束を象徴します。
-					</p>
-				</header>
-				<div class="about-card-grid">
-					{culturalThreads.map((item) => (
-						<article key={item.title} class="about-card">
-							<h3 class="about-card-title">{item.title}</h3>
-							<p class="about-card-body">{item.body}</p>
-						</article>
-					))}
-				</div>
-			</section>
-			<section class="about-container about-section">
-				<header class="about-section-header">
-					<p class="about-section-eyebrow">Timeline</p>
-					<h2 class="about-section-title">声とともに広がった旅路</h2>
-					<p class="about-section-lead">
-						時代を追うことで、どのようにしてカバディが今日の舞台に至ったかを俯瞰できます。
-					</p>
-				</header>
-				<ol class="about-timeline">
-					{timeline.map((item) => (
-						<li key={item.year} class="about-timeline-item">
-							<span class="about-timeline-year">{item.year}</span>
-							<p class="about-timeline-text">{item.description}</p>
-						</li>
-					))}
-				</ol>
-			</section>
-			<section class="about-container about-section about-section-split">
-				<header class="about-section-header">
-					<p class="about-section-eyebrow">Modern Scene</p>
-					<h2 class="about-section-title">世界へ共鳴する現在地</h2>
-					<p class="about-section-lead">
-						放送や配信、スポーツサイエンスの導入により、カバディは国境を越えて互いの熱量を共有するステージへと進化しています。
-					</p>
-				</header>
-				<div class="about-section-content">
-					<aside class="about-note">
-						<h3 class="about-note-title">現代シーンの断片</h3>
-						<ul class="about-note-list">
-							{modernHighlights.map((highlight) => (
-								<li key={highlight} class="about-note-item">
-									{highlight}
-								</li>
-							))}
-						</ul>
-					</aside>
-					<div class="about-prose">
-						<p>
-							競技を支える人材はアスリートだけではありません。アナリストやトレーナー、コミュニティオーガナイザーが連携し合い、声が生む緊張感を世界のファンと共有する仕組みを築いています。
-						</p>
-						<p>
-							応援の掛け声やチームカラーは土地のアイデンティティと結びつき、国際大会では互いの文化背景を尊重し合う交流の場として機能しています。
-						</p>
-					</div>
-				</div>
-			</section>
-			<section class="about-container about-cta">
-				<h2 class="about-cta-title">カバディの世界へ一歩踏み出す</h2>
-				<p class="about-cta-text">
-					もう少し深く知りたいと感じたら、競技の基本的な流れやチームの役割をまとめたガイドへ進んでください。観戦や体験の前に概要を押さえるだけでも、声の臨場感が一段と鮮やかになります。
-				</p>
-				<div class="about-cta-actions">
-					<Link href=".." class="about-link about-link-tertiary">
-						トップへ戻る
-					</Link>
-					<Link href="rules" class="about-link about-link-primary">
-						ルールガイドを見る
-					</Link>
-				</div>
-			</section>
-		</main>
+		<div class="about-container">
+			<main class="about-page">
+				<AboutHero stats={heroStats} />
+				<PhasesSection phases={phases} />
+				<InternationalResultsSection results={internationalResults} />
+				<RecentHighlightsSection highlights={recentHighlights} />
+				<FeatureSection features={featureAngles} />
+			</main>
+		</div>
 	);
 });
 
 export const head: DocumentHead = {
-	title: "Kabaddi Overview | Kabaddi Knowledge",
+	title: "Japan Kabaddi History | Kabaddi Knowledge",
 	meta: [
 		{
 			name: "description",
 			content:
-				"声と連携が象徴するカバディの歴史的背景と現代シーンを俯瞰するAboutページです。文化的なルーツと現在地を概要で紹介します。",
+				"1978年の展示試合から2020年代の国際タイトルまで、日本におけるカバディの導入と普及の流れを年代別に整理した履歴ページです。",
 		},
 		{
 			name: "keywords",
-			content: "カバディとは, Kabaddi, 文化, 南アジア, 伝統競技, 国際大会",
+			content:
+				"カバディ,日本カバディ協会,アジア競技大会,大学スポーツ,国際大会,東金市",
 		},
 		{
 			property: "og:title",
-			content: "Kabaddi Overview | Kabaddi Knowledge",
+			content: "Japan Kabaddi History | Kabaddi Knowledge",
 		},
 		{
 			property: "og:description",
 			content:
-				"カバディの文化的な背景と現代の広がりを紹介する概要ページ。観戦や体験への第一歩としてお役立てください。",
+				"日本でのカバディ導入、全国大会、学生スポーツ化、最新の国際実績をまとめた履歴ページ。",
 		},
 		{
 			property: "og:type",

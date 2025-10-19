@@ -1,0 +1,115 @@
+@layer components {
+	.site-footer {
+		position: relative;
+		overflow: hidden;
+		border-top: 1px solid rgba(var(--ink-delicate), 0.4);
+		background:
+			radial-gradient(
+				140% 140% at 24% -10%,
+				rgba(var(--color-horizon-green), 0.22),
+				transparent 68%
+			),
+			linear-gradient(
+				135deg,
+				rgba(255, 255, 255, 0.82),
+				rgba(var(--color-mocha-mousse), 0.14)
+			);
+		backdrop-filter: blur(22px);
+		-webkit-backdrop-filter: blur(22px);
+		isolation: isolate;
+	}
+
+	.site-footer__beam {
+		position: absolute;
+		top: 0;
+		left: 6%;
+		width: 42%;
+		height: 2px;
+		background: linear-gradient(
+			90deg,
+			rgba(var(--color-horizon-green), 0) 0%,
+			rgba(var(--color-horizon-green), 0.65) 28%,
+			rgba(255, 255, 255, 0.85) 52%,
+			rgba(var(--color-mocha-mousse), 0.4) 78%,
+			rgba(var(--color-mocha-mousse), 0) 100%
+		);
+		filter: drop-shadow(0 0 12px rgba(var(--color-horizon-green), 0.35));
+		pointer-events: none;
+	}
+
+	.site-footer__orb {
+		position: absolute;
+		right: -12%;
+		bottom: -18%;
+		width: 320px;
+		height: 320px;
+		background: radial-gradient(
+			circle at 50% 50%,
+			rgba(var(--color-horizon-green), 0.32) 0%,
+			rgba(255, 255, 255, 0) 70%
+		);
+		opacity: 0.55;
+		filter: blur(14px);
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	.site-footer__inner {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		gap: calc(var(--space-base) * 1.2);
+		padding: calc(var(--space-base) * 2.8) 0;
+		color: rgba(var(--ink-strong), 0.9);
+	}
+
+	.site-footer__brand {
+		display: flex;
+		flex-direction: column;
+		gap: calc(var(--space-base) * 0.75);
+		align-items: center;
+		text-align: center;
+	}
+
+	.site-footer__eyebrow {
+		font-size: 0.68rem;
+		font-family: var(--font-hard);
+		text-transform: uppercase;
+		letter-spacing: 0.32em;
+		color: rgba(var(--ink-soft), 0.78);
+	}
+
+	.site-footer__tagline {
+		font-size: 0.88rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: rgba(var(--ink-strong), 0.86);
+	}
+
+	.site-footer__legal {
+		margin: 0;
+		font-size: 0.72rem;
+		letter-spacing: 0.28em;
+		text-transform: uppercase;
+		color: rgba(var(--ink-muted), 0.82);
+		text-align: center;
+	}
+
+	@media (min-width: 48rem) {
+		.site-footer__inner {
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.site-footer__brand {
+			align-items: flex-start;
+			text-align: left;
+		}
+
+		.site-footer__legal {
+			text-align: right;
+		}
+	}
+}
